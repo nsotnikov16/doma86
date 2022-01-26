@@ -442,7 +442,7 @@ ul {
 
 a {
   text-decoration: none;
-  color: #24284B;
+  color: #24284b;
 }
 
 button,
@@ -461,10 +461,9 @@ body {
 }
 
 .page {
-  color: #24284B;
-  background-color: #F1F7FA;
-  /* overflow: hidden;
-  background-size: cover 40%; */
+  color: #24284b;
+  background-color: #f1f7fa;
+  overflow: hidden;
 }
 
 .page__container {
@@ -515,33 +514,39 @@ body {
 /* Фоны */
 
 .background-blue {
-  background: -webkit-gradient(linear, left top, left bottom, from(#2c6bc6), to(#1855b7)), -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), #ffffff;
-  background: -o-linear-gradient(top, #2c6bc6 0%, #1855b7 100%), -o-linear-gradient(bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), #ffffff;
-  background: linear-gradient(180deg, #2c6bc6 0%, #1855b7 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), #ffffff;
+  background: -webkit-gradient(linear, left top, left bottom, from(#2c6bc6), to(#1855b7));
+  background: -o-linear-gradient(top, #2c6bc6 0%, #1855b7 100%);
+  background: linear-gradient(180deg, #2c6bc6 0%, #1855b7 100%);
+  -webkit-box-shadow: 0px 26px 10px -5px rgba(27, 89, 185, 0.15);
+          box-shadow: 0px 26px 10px -5px rgba(27, 89, 185, 0.15);
 }
 
 .background-green {
+  background: -webkit-gradient(linear, left top, left bottom, from(#29cc5b), to(#1baf43));
+  background: -o-linear-gradient(top, #29cc5b 0%, #1baf43 100%);
+  background: linear-gradient(180deg, #29cc5b 0%, #1baf43 100%);
+  -webkit-box-shadow: 0px 26px 10px -5px rgba(27, 176, 67, 0.15);
+          box-shadow: 0px 26px 10px -5px rgba(27, 176, 67, 0.15);
+}
+
+.background-purple {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(-22.81%, rgba(196, 196, 196, 0)), to(#ffffff));
   background: -o-linear-gradient(top, rgba(196, 196, 196, 0) -22.81%, #ffffff 100%);
   background: linear-gradient(180deg, rgba(196, 196, 196, 0) -22.81%, #ffffff 100%);
 }
 
-.background-purple {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(-22.81%, rgba(196, 196, 196, 0)), to(#FFFFFF));
-  background: -o-linear-gradient(top, rgba(196, 196, 196, 0) -22.81%, #FFFFFF 100%);
-  background: linear-gradient(180deg, rgba(196, 196, 196, 0) -22.81%, #FFFFFF 100%);
-}
-
 /* Повторяющиеся элементы */
 
 .cover {
-  position: absolute;
-  z-index: -10;
+  background-image: url(../img/cover.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* Кнопки */
 
 .btn {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -551,6 +556,20 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border-radius: 5px;
+}
+
+.btn:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  background-color: #fff;
+  opacity: 0.2;
+  width: 100%;
+  height: 100%;
 }
 
 /* График работы, телефон, мы в мессенджерах и прочее */
@@ -652,7 +671,7 @@ body {
   display: block;
   height: 2px;
   width: 100%;
-  background: #24284B;
+  background: #24284b;
   border-radius: 3px;
   margin-bottom: 5px;
   -webkit-transform: rotate(0) translate(0);
@@ -674,7 +693,7 @@ body {
 }
 
 .burger:hover span {
-  background: #24284B;
+  background: #28cb5a;
 }
 
 /* Шапка */
@@ -721,9 +740,104 @@ body {
   line-height: 22px;
 }
 
+.header__menu a:hover {
+  color: #28cb5a;
+}
+
 .header__mobile-menu {
   display: none;
   position: relative;
+}
+
+/* Баннер */
+
+.banner {
+  padding: 7% 0 15%;
+}
+
+.banner__title {
+  max-width: 560px;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 48px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.banner__title span {
+  position: relative;
+  color: #1b5dbd;
+  border-bottom: 6px dashed #1b5dbd;
+}
+
+.banner__title span:hover {
+  cursor: pointer;
+}
+
+.banner__title span:hover .banner__tooltip {
+  opacity: 1;
+  visibility: visible;
+  max-width: 460px;
+  -webkit-transition: opacity 0.3s linear 0.2s, visibility 0.3s linear 0.2s;
+  -o-transition: opacity 0.3s linear 0.2s, visibility 0.3s linear 0.2s;
+  transition: opacity 0.3s linear 0.2s, visibility 0.3s linear 0.2s;
+}
+
+.banner__tooltip {
+  position: absolute;
+  top: -75%;
+  right: -320%;
+  opacity: 0;
+  visibility: hidden;
+  max-width: 0;
+  font-size: 18px;
+  line-height: 140%;
+  font-weight: 400;
+  text-align: center;
+  background: -webkit-gradient(linear, left bottom, left top, from(#e2eef3), to(#e2eef3)), -webkit-gradient(linear, left top, left bottom, from(#2c6bc6), to(#1855b7));
+  background: -o-linear-gradient(bottom, #e2eef3, #e2eef3), -o-linear-gradient(top, #2c6bc6 0%, #1855b7 100%);
+  background: linear-gradient(0deg, #e2eef3, #e2eef3), linear-gradient(180deg, #2c6bc6 0%, #1855b7 100%);
+  border: 1px solid #1b5dbd;
+  border-radius: 5px;
+  color: #24284b;
+  padding: 10px;
+  text-transform: initial;
+}
+
+.banner__tooltip svg {
+  position: absolute;
+  top: 50px;
+  left: -24px;
+  width: 40px;
+  height: 40px;
+}
+
+.banner__subtitle {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 34px;
+  max-width: 400px;
+}
+
+.banner__btns {
+  margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.banner .btn {
+  padding: 20px;
+  width: 250px;
+  margin-right: 20px;
+  color: #fff;
+}
+
+.banner .btn:last-child {
+  margin-right: 0;
 }
 
 /* Подвал */
@@ -778,7 +892,7 @@ body {
 }
 
 .popup__close:hover {
-  color: #24284B;
+  color: #24284b;
 }
 
 .popup__img {
@@ -840,6 +954,40 @@ body {
   }
 }
 
+@media (max-width: 1020px) {
+  .cover {
+    background-size: 120%;
+    background-position-x: 63%;
+  }
+
+  .banner {
+    padding: 5% 0 15%;
+  }
+
+  .banner__title {
+    font-size: 32px;
+    line-height: 45px;
+    max-width: 400px;
+    margin-bottom: 20px;
+  }
+
+  .banner__subtitle {
+    font-size: 20px;
+    line-height: 27px;
+    max-width: 320px;
+  }
+
+  .banner__btns {
+    margin-top: 35px;
+  }
+
+  .banner .btn {
+    font-size: 12px;
+    line-height: 16px;
+    width: 210px;
+  }
+}
+
 @media (max-width: 1000px) {
   .header__menu {
     display: none;
@@ -876,6 +1024,7 @@ body {
   }
 
   .header__mobile-menu.open .header__mobile-menu-container {
+    z-index: 2;
     top: 30px;
     right: -5px;
     border: 1px solid #28cb5a;

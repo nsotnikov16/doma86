@@ -1,13 +1,34 @@
 .cover {
-    position: absolute;
-    z-index: -10;
-}
+    background-image: url(../img/cover.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 
+    @media (max-width: 1020px) {
+        background-size: 120%;
+        background-position-x: 63%;
+    }
+}
 /* Кнопки */
 .btn {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
+    &:hover {
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 0;
+            background-color: #fff;
+            opacity: 0.2;
+            width: 100%;
+            height: 100%;
+        }
+    }
 }
 
 /* График работы, телефон, мы в мессенджерах и прочее */
@@ -99,7 +120,7 @@
     &:hover {
         cursor: pointer;
         span {
-            background: $main;
+            background: $green;
         }
     }
 

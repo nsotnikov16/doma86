@@ -9,10 +9,9 @@
   }
 }
 
-$green: #28CB5A;
-$main: #24284B;
-$background-main: #F1F7FA;
-
+$green: #28cb5a;
+$main: #24284b;
+$background-main: #f1f7fa;
 
 @import "fonts";
 
@@ -24,18 +23,17 @@ body {
 .page {
   color: $main;
   background-color: $background-main;
-  /* overflow: hidden;
-  background-size: cover 40%; */
+  overflow: hidden;
 
   &__container {
     margin: 0 auto;
     max-width: 1160px;
-    
+
     @media (max-width: 1159px) {
       padding: 0 40px;
     }
 
-    @media(max-width: 768px) {
+    @media (max-width: 768px) {
       padding: 0 74px;
     }
 
@@ -55,6 +53,9 @@ body {
 
 /* Шапка */
 @import "header";
+
+/* Баннер */
+@import "banner";
 
 /* Подвал */
 @import "footer";

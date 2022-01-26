@@ -17,11 +17,16 @@
 
 <body>
     <!-- Главная -->
-    <div class="page" style="background-image: url(./img/cover.jpg)">
+    <div class="page">
         <!-- <img class="cover" src="./img/cover.jpg" alt="Обложка"> -->
         <!-- Шапка -->
-        @@include('components/_header.html')
+        <div class="cover">
+            @@include('components/_header.html')
+            @@include('components/_banner.html')
+        </div>
+
         <main class="main">
+
         </main>
         <!-- @@include('components/_map.html') -->
         @@include('components/_footer.html')
