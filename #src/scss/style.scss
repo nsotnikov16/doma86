@@ -24,8 +24,8 @@ body {
 .page {
   color: $main;
   background-color: $background-main;
-  overflow: hidden;
-  background-size: cover 40%;
+  /* overflow: hidden;
+  background-size: cover 40%; */
 
   &__container {
     margin: 0 auto;
