@@ -1,0 +1,63 @@
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face {
+    font-family: $font_name;
+    font-display: swap;
+    src: url(../fonts/#{$file_name}.woff2) format("woff2");
+    src: url(../fonts/#{$file_name}.woff) format("woff");
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}
+
+$green: #28CB5A;
+$main: #24284B;
+$background-main: #F1F7FA;
+
+
+@import "fonts";
+
+@import "normalize";
+
+body {
+  font-family: "Manrope";
+}
+.page {
+  color: $main;
+  background-color: $background-main;
+  overflow: hidden;
+  background-size: cover 40%;
+
+  &__container {
+    margin: 0 auto;
+    max-width: 1160px;
+    
+    @media (max-width: 1159px) {
+      padding: 0 40px;
+    }
+
+    @media(max-width: 768px) {
+      padding: 0 74px;
+    }
+
+    @media (max-width: 680px) {
+      padding: 0 20px;
+    }
+  }
+}
+/* Логотип */
+@import "logo";
+
+/* Фоны */
+@import "backgrounds";
+
+/* Повторяющиеся элементы */
+@import "other";
+
+/* Шапка */
+@import "header";
+
+/* Подвал */
+@import "footer";
+
+/* Попапы */
+@import "popups";

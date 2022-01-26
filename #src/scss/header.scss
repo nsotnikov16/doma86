@@ -1,0 +1,34 @@
+.header {
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 17px 0;
+    }
+
+    .hr {
+        background: #ffffff;
+        color: #ffffff;
+        opacity: 0.5;
+        height: 1px;
+    }
+
+    &__menu {
+        padding: 23px 0;
+        ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        a {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 22px;
+        }
+    }
+
+    &__mobile-menu {
+        display: none;
+    }
+}

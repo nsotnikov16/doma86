@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Дома 86</title>
+    <link rel="icon" href="./img/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="Японец">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=613b8b9b-619b-4e88-88da-82b9980c3fee&lang=ru_RU"
+        type="text/javascript"></script>
+</head>
+
+<body>
+    <!-- Главная -->
+    <div class="page" style="background-image: url(./img/cover.jpg)">
+        <!-- <img class="cover" src="./img/cover.jpg" alt="Обложка"> -->
+        <!-- Шапка -->
+        @@include('components/_header.html')
+        <main class="main">
+        </main>
+        <!-- @@include('components/_map.html') -->
+        @@include('components/_footer.html')
+        <!-- <a href="#header" class="arrow scroll-to">
+            <span></span><span></span>
+        </a> -->
+    </div>
+
+    <!-- <div id="callback" class="popup">
+        <div class="popup__container">
+            <div class="popup__content">
+                <form class="form">
+                    <h3 class="form-title">оставьте ЗАЯВКУ</h3>
+                    <p class="form-subtitle">Мы вам перезвоним через 3 минуты
+                        и подробно ответим на все ваши вопросы</p>
+                    <div class="form-row">
+                        <label for="callback-phone" class="form-label">Ваш телефон <span>*</span></label>
+                        <input type="tel" maxlength="12" name="phone" id="callback-phone" class="form-input"
+                            autocomplete="off" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="callback-name" class="form-label">Ваше имя (необязательно)</label>
+                        <input type="text" maxlength="30" name="name" id="callback-name" class="form-input"
+                            autocomplete="off">
+                    </div>
+                    <div class="form-row message">
+                        <label for="callback-message" class="form-label">Текст вопроса (необязательно)</label>
+                        <textarea type="text" name="message" id="callback-message" class="form-input"
+                            autocomplete="off"></textarea>
+                    </div>
+                    <button class="btn">Отправить</button>
+                </form>
+            </div>
+            <button class="popup__close">&#10006;</button>
+        </div>
+    </div> -->
+
+    <!-- <div id="photo" class="popup">
+        <div class="popup__container">
+            <div class="popup__content">
+                <img src="./img/test1.png" alt="Image" class="popup__img">
+            </div>
+            <button class="popup__close">&#10006;</button>
+
+        </div>
+    </div> -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery.maskedinput.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
