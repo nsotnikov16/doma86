@@ -1,0 +1,226 @@
+.catalog {
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 21px 41px;
+    }
+
+    &__description {
+        padding: 10px 20px 0;
+    }
+
+    &__item {
+        background: #ffffff;
+        border: 1px solid #c2d7e0;
+        border-radius: 5px;
+    }
+
+    &__photo {
+        height: 218px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &__name {
+        font-size: 30px;
+        line-height: 41px;
+    }
+
+    &__specifications {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 20px 0 35px;
+    }
+
+    &__specification {
+        position: relative;
+        font-size: 14px;
+        line-height: 19px;
+        padding-left: 25px;
+        &::before {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            width: 15px;
+            height: 15px;
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+        &.size {
+            &::before {
+                background-image: url(../img/size.svg);
+            }
+        }
+        &.rooms {
+            &::before {
+                background-image: url(../img/rooms.svg);
+            }
+        }
+
+        &.square {
+            &::before {
+                background-image: url(../img/square.svg);
+            }
+        }
+
+        &.deadlines {
+            &::before {
+                background-image: url(../img/deadlines.svg);
+            }
+        }
+    }
+
+    &__price {
+        padding: 10px 0;
+        display: flex;
+        flex-direction: column;
+        font-size: 20px;
+        line-height: 23px;
+        text-align: center;
+        font-weight: 700;
+        border-top: 1px solid #c2d7e0;
+        .green {
+            font-size: 30px;
+            line-height: 35px;
+        }
+    }
+
+    &__view {
+        font-size: 14px;
+        line-height: 19px;
+        padding: 24px 0;
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+        font-weight: 700;
+        border-top: 1px solid #c2d7e0;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        &:hover {
+            border-top: 1px solid #fff;
+            &::after {
+                position: absolute;
+                content: "";
+                top: 0;
+                right: -20px;
+                left: -20px;
+                bottom: 0;
+                height: 100%;
+                background: linear-gradient(180deg, #29cc5b 0%, #1baf43 100%);
+                box-shadow: 0px 26px 10px -5px rgba(27, 176, 67, 0.15);
+                border-radius: 0px 0px 5px 5px;
+                z-index: -1;
+            }
+
+            color: #ffffff;
+        }
+    }
+
+    .btn_all {
+        margin: 27px auto 0;
+        width: 210px;
+        height: 45px;
+        border: 1px solid #c2d7e0;
+        border-radius: 5px;
+        font-weight: 700;
+        font-size: 16px;
+        &:hover {
+            background: rgba(40, 203, 90, 0.1);
+            color: #28cb5a;
+            svg {
+                fill: #28cb5a;
+            }
+        }
+        svg {
+            margin-left: 10px;
+            width: 17px;
+            height: 17px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        &__list {
+            gap: 20px;
+        }
+        &__specifications {
+            grid-template-columns: 1fr;
+        }
+        &__specification {
+            &.rooms {
+                grid-row: 3/4;
+            }
+
+            &.square {
+                grid-row: 2/3;
+            }
+        }
+
+        &__name {
+            font-size: 25px;
+            line-height: 34px;
+        }
+    }
+
+    @media (max-width: 1000px) {
+        &__list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 1000px) and (min-width: 769px) {
+        &__photo {
+            height: 250px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        &__photo {
+            height: 182px;
+        }
+
+        &__specifications {
+            padding: 20px 0;
+            gap: 10px;
+        }
+
+        &__price {
+            font-size: 15px;
+            line-height: 18px;
+            .green {
+                font-size: 25px;
+                line-height: 30px;
+            }
+        }
+    }
+
+    @media (max-width: 580px) {
+        &__list {
+            grid-template-columns: 1fr;
+            gap: 11px;
+        }
+
+        &__photo {
+            height: 300px;
+        }
+    }
+
+    @media (max-width: 360px) {
+        &__photo {
+            height: 194px;
+        }
+    }
+}
+.size {
+}
+.rooms {
+}
+.square {
+}
+.deadlines {
+}
+.green {
+}

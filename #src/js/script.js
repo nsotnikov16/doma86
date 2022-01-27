@@ -164,4 +164,7 @@ if (labelsFilter.length > 0) {
     })
 }
 
-if (selectFilter) selectFilter.addEventListener('click', () => containerFilter.classList.toggle('open'))
+if (selectFilter) selectFilter.addEventListener('click', () => {
+    selectFilter.classList.toggle('open')
+    containerFilter.classList.toggle('open')
+})

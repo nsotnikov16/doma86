@@ -182,6 +182,12 @@
             border-radius: 5px;
             text-transform: uppercase;
             position: relative;
+            &.open {
+                &::after {
+                    top: 22px;
+                    transform: rotate(-180deg);
+                }
+            }
             &::after {
                 position: absolute;
                 content: "";
@@ -192,6 +198,8 @@
                 background-repeat: no-repeat;
                 top: 25px;
                 right: 25px;
+                transform: rotate(0);
+                transition: transform 0.3s linear;
             }
         }
         &__container {
@@ -207,7 +215,7 @@
             transform: translateY(-10px);
         }
 
-        &__block{
+        &__block {
             &:first-of-type {
                 padding-top: 10px;
             }
