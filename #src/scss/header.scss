@@ -153,4 +153,13 @@
             }
         }
     }
+
+    @media(max-width: 768px) {
+        &__logo, &__mobile-menu {
+            position: relative;
+            z-index: 30;
+        }
+
+
+    }
 }

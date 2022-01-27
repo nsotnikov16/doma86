@@ -538,6 +538,7 @@ body {
 /* Повторяющиеся элементы */
 
 .cover {
+  position: relative;
   background-image: url(../img/cover.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -1117,6 +1118,47 @@ body {
     padding: 0 74px;
   }
 
+  .cover {
+    background-size: 190%;
+    background-position-x: 92%;
+    background-position-y: -55px;
+  }
+
+  .cover::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: #f7fbfd;
+    opacity: 0.6;
+    -webkit-filter: blur(190.693px);
+            filter: blur(190.693px);
+  }
+
+  .header__logo,
+  .header__mobile-menu {
+    position: relative;
+    z-index: 30;
+  }
+
+  .banner {
+    z-index: 10;
+    position: relative;
+    padding: 15% 0 15%;
+  }
+
+  .banner__title span:hover .banner__tooltip {
+    max-width: 250px;
+    top: -100%;
+    right: -220%;
+    font-size: 15px;
+    line-height: 120%;
+  }
+
   .popup__img {
     max-width: 85vw;
   }
@@ -1125,6 +1167,12 @@ body {
 @media (max-width: 680px) {
   .page__container {
     padding: 0 20px;
+  }
+}
+
+@media (max-width: 650px) {
+  .cover {
+    background-position-y: 0;
   }
 }
 
@@ -1144,5 +1192,77 @@ body {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .cover::after {
+    -webkit-filter: blur(1028.693px);
+            filter: blur(1028.693px);
+  }
+
+  .banner {
+    padding: 80% 0 15%;
+  }
+
+  .banner__title {
+    font-size: 38px;
+    line-height: 45px;
+    max-width: 100%;
+  }
+
+  .banner__title span {
+    color: #24284b;
+    border-bottom: 0;
+  }
+
+  .banner__title span:hover .banner__tooltip {
+    display: none;
+  }
+
+  .banner__subtitle {
+    font-size: 25px;
+    max-width: 100%;
+  }
+
+  .banner__btns {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .banner__btns .btn {
+    margin-right: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    line-height: 16px;
+    width: 100%;
+  }
+
+  .banner__btns .btn:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 559px) {
+  .banner__title {
+    font-size: calc(24px + 23.8 * (100vw - 360px) / 560);
+    line-height: calc(33px + 20.4 * (100vw - 360px) / 560);
+  }
+
+  .banner__subtitle {
+    font-size: calc(17px + 13.6 * (100vw - 360px) / 560);
+    line-height: calc(23px + 6.8 * (100vw - 360px) / 560);
+  }
+
+  .banner__btns .btn {
+    font-size: calc(12px + 13.6 * (100vw - 360px) / 560);
+  }
+}
+
+@media (max-width: 360px) {
+  .cover {
+    background-size: 215%;
   }
 }
