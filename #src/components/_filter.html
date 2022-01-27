@@ -1,0 +1,81 @@
+<form action="" class="filter">
+    <div class="filter__select">Фильтры</div>
+    <div class="filter__container">
+        <div class="filter__block">
+            <h3 class="filter__name">По площади:</h3>
+            <div class="filter__variants">
+                <label for="square-all" class="filter__label">
+                    <span>все варианты</span>
+                    <input type="checkbox" name="square" id="square-all">
+                </label>
+                <label for="square-100" class="filter__label">
+                    <span>до 100 м2</span>
+                    <input type="checkbox" name="square" id="square-100">
+                </label>
+                <label for="square-100-200" class="filter__label">
+                    <span>100-200 м2</span>
+                    <input type="checkbox" name="square" id="square-100-200">
+                </label>
+                <label for="square-200" class="filter__label">
+                    <span>от 200 м2</span>
+                    <input type="checkbox" name="square" id="square-200">
+                </label>
+            </div>
+        </div>
+        <div class="filter__block">
+            <h3 class="filter__name">По этажности:</h3>
+            <div class="filter__variants">
+                <label for="floors-all" class="filter__label">
+                    <span>все варианты</span>
+                    <input type="checkbox" name="floors" id="floors-all">
+                </label>
+                <label for="floors-1" class="filter__label">
+                    <span>1 этаж</span>
+                    <input type="checkbox" checked name="floors" id="floors-1">
+                </label>
+                <label for="floors-1m" class="filter__label">
+                    <span>1 этаж + мансарда</span>
+                    <input type="checkbox" name="floors" id="floors-1m">
+                </label>
+                <label for="floors-2" class="filter__label">
+                    <span>2 этажа</span>
+                    <input type="checkbox" checked name="floors" id="floors-2">
+                </label>
+            </div>
+        </div>
+        <div class="filter__block">
+            <h3 class="filter__name">С пристроем:</h3>
+            <div class="filter__variants">
+                <label for="build-all" class="filter__label">
+                    <span>все варианты</span>
+                    <input type="checkbox" name="build" id="build-all">
+                </label>
+                <label for="build-terrace" class="filter__label">
+                    <span>с террасой</span>
+                    <input type="checkbox" name="build" id="build-terrace">
+                </label>
+                <label for="build-balconies" class="filter__label">
+                    <span>с балконом</span>
+                    <input type="checkbox" name="build" id="build-balconies">
+                </label>
+                <label for="build-veranda" class="filter__label">
+                    <span>с верандой</span>
+                    <input type="checkbox" name="build" id="build-veranda">
+                </label>
+            </div>
+        </div>
+        <div class="filter__block sort">
+            <h3 class="filter__name">Сортировать:</h3>
+            <div class="filter__variants">
+                <label for="sort-price-desc" class="filter__label price-desc">
+                    <span>дешевле</span>
+                    <input type="radio" checked name="build" id="sort-price-desc">
+                </label>
+                <label for="sort-price-asc" class="filter__label price-asc">
+                    <span>дороже</span>
+                    <input type="radio" name="build" id="sort-price-asc">
+                </label>
+            </div>
+        </div>
+    </div>
+</form>

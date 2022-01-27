@@ -139,4 +139,19 @@ const popups = document.querySelectorAll('.popup')
 if (popups.length > 0) popups.forEach(item => new Popup(item))
 
 
+// Filter
+const labelsFilter = document.querySelectorAll('.filter__label')
+if (labelsFilter.length > 0) {
+    labelsFilter.forEach(label => {
+        const forLabel = label.getAttribute('for')
+        const input = document.querySelector(`#${forLabel}`)
+        input.addEventListener('click', () => {
+            if (input.type === 'radio') {
+                console.log(input.type)
+            }
 
+            if (input.type === 'checkbox') input.checked ? label.classList.add('active') : label.classList.remove('active')
+
+        })
+    })
+}

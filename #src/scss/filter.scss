@@ -1,0 +1,101 @@
+.filter {
+    margin-bottom: 20px;
+    &__select {
+        display: none;
+    }
+
+    &__container {
+        background: #ffffff;
+        border: 1px solid #c2d7e0;
+        border-radius: 5px;
+        padding: 30px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px 55px;
+    }
+
+    &__block {
+        &.sort {
+            grid-column: 1/4;
+        }
+    }
+
+    &__name {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 25px;
+        padding: 0 0 10px;
+        border-bottom: 1px solid #c2d7e0;
+        width: 100%;
+        text-transform: uppercase;
+    }
+
+    &__variants {
+        padding: 20px 0 0;
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        gap: 8px 40px;
+    }
+
+    &__label {
+        &:hover {
+            cursor: pointer;
+        }
+        span {
+            font-size: 16px;
+            line-height: 22px;
+
+            &:not(.filter__block.sort .filter__label span):hover {
+                &::before {
+                    border: 1px solid #28cb5a;
+                }
+            }
+
+            &::before {
+                content: "";
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                margin-right: 10px;
+                transform: translateY(3px);
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+            &:not(.filter__block.sort .filter__label span) {
+                &::before {
+                    border: 1px solid #c2d7e0;
+                    background-image: url(../img/checkbox.svg);
+                    background-size: 100%;
+                }
+            }
+        }
+
+        &.price-desc {
+            span {
+                &::before {
+                    width: 24px;
+                    height: 24px;
+                    background-image: url(../img/desc.svg);
+                    background-size: 100%;
+                    transform: translateY(7px);
+                }
+            }
+        }
+
+        &.price-asc {
+            span {
+                &::before {
+                    width: 24px;
+                    height: 24px;
+                    background-image: url(../img/asc.svg);
+                    background-size: 100%;
+                    transform: translateY(7px);
+                }
+            }
+        }
+    }
+
+    input {
+        display: none;
+    }
+}
