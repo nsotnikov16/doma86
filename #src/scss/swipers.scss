@@ -1,0 +1,41 @@
+.swiper-catalog {
+    width: 100%;
+
+    .swiper-pagination {
+        padding: 0 5px;
+        bottom: 5px;
+        display: flex;
+    }
+
+    .swiper-pagination-bullet {
+        position: relative;
+        background: transparent;
+        opacity: 1;
+        width: 100%;
+        height: 230px;
+        @media (max-width: 1150px) {
+            height: 4px;
+        }
+        border-radius: 0;
+        cursor: initial;
+        &::after {
+            cursor: pointer;
+            position: absolute;
+            content: "";
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            width: 100%;
+            background: #ffffff;
+            opacity: 0.7;
+            z-index: -99;
+        }
+    }
+
+    .swiper-pagination-bullet-active {
+        &::after {
+            background: #28cb5a;
+            height: 4px;
+        }
+    }
+}

@@ -168,3 +168,25 @@ if (selectFilter) selectFilter.addEventListener('click', () => {
     selectFilter.classList.toggle('open')
     containerFilter.classList.toggle('open')
 })
+
+
+const swipersCatalog = document.querySelectorAll('.swiper-catalog')
+if (swipersCatalog.length > 0) {
+    swipersCatalog.forEach((swiper, ind) => {
+        swiper.classList.add(`swiper-catalog-${ind + 1}`)
+        var swiperCatalog = new Swiper(`.swiper-catalog-${ind + 1}`, {
+            loop: true,
+            pagination: {
+                el: `.swiper-catalog-${ind + 1} .swiper-pagination`,
+                clickable: true,
+            },
+        })
+        const bullets = swiper.querySelectorAll('.swiper-pagination-bullet')
+        if (bullets.length > 0) bullets.forEach(bullet => {
+            const aria = bullet.getAttribute('aria-label')
+            const nextSlide = aria[aria.length - 1]
+            bullet.addEventListener('mouseenter', () => { if(window.innerWidth > 1150) swiperCatalog.slideTo(nextSlide) })
+        })
+    })
+}
+
