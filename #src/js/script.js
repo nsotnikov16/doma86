@@ -1,3 +1,4 @@
+
 // Меню шапка
 const header = document.querySelector('.header')
 const headerContainer = header.querySelector('.header__container')
@@ -141,17 +142,26 @@ if (popups.length > 0) popups.forEach(item => new Popup(item))
 
 // Filter
 const labelsFilter = document.querySelectorAll('.filter__label')
+const selectFilter = document.querySelector('.filter__select')
+const containerFilter = document.querySelector('.filter__container')
 if (labelsFilter.length > 0) {
     labelsFilter.forEach(label => {
         const forLabel = label.getAttribute('for')
         const input = document.querySelector(`#${forLabel}`)
+        input.checked ? label.classList.add('active') : ''
         input.addEventListener('click', () => {
+            const inputs = input.closest('.filter__variants').querySelectorAll('input')
             if (input.type === 'radio') {
-                console.log(input.type)
+                inputs.forEach(el => {
+                    const parent = el.parentNode
+                    parent.classList.remove('active')
+                    el === input && el.checked ? parent.classList.add('active') : ''
+                })
             }
-
             if (input.type === 'checkbox') input.checked ? label.classList.add('active') : label.classList.remove('active')
 
         })
     })
 }
+
+if (selectFilter) selectFilter.addEventListener('click', () => containerFilter.classList.toggle('open'))
