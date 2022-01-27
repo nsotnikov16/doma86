@@ -1,5 +1,29 @@
 
+// Меню шапка
+const header = document.querySelector('.header')
+const headerContainer = header.querySelector('.header__container')
+const headerMenu = header.querySelector('.header__menu')
+const headerMenuList = header.querySelector('.header__menu ul')
+const headerMenuMobile = header.querySelector('.header__mobile-menu')
+const headerMenuMobileContainer = header.querySelector('.header__mobile-menu-container')
+const headerInfo = header.querySelector('.header__info')
+const headerSocial = header.querySelector('.header .social')
+const burger = header.querySelector('.burger')
+function mobileView() {
+    headerMenuMobileContainer.append(headerMenuList)
+    headerMenuMobileContainer.append(headerInfo)
+    headerMenuMobileContainer.append(headerSocial)
+}
 
+function desktopView() {
+    headerMenu.append(headerMenuList)
+    headerContainer.append(headerInfo)
+    headerContainer.append(headerSocial)
+}
+window.innerWidth <= 1000 ? mobileView() : desktopView()
+window.addEventListener('resize', () => window.innerWidth <= 1000 ? mobileView() : desktopView())
+
+burger.addEventListener('click', () => headerMenuMobile.classList.toggle('open'))
 
 // Анимация
 const sectionTitle = document.querySelectorAll('.section__title')
@@ -50,7 +74,7 @@ if (animItems.length > 0) {
 
 
 // Scroll To
-$('.scroll-to').on('click', function () {
+/* $('.scroll-to').on('click', function () {
     headerMobile.classList.remove('open-menu')
     let href = $(this).attr('href');
 
@@ -62,7 +86,7 @@ $('.scroll-to').on('click', function () {
     });
 
     return false;
-});
+}); */
 
 
 // Popups
@@ -114,3 +138,33 @@ class Popup {
 const popups = document.querySelectorAll('.popup')
 
 if (popups.length > 0) popups.forEach(item => new Popup(item))
+
+
+// Filter
+const labelsFilter = document.querySelectorAll('.filter__label')
+const selectFilter = document.querySelector('.filter__select')
+const containerFilter = document.querySelector('.filter__container')
+if (labelsFilter.length > 0) {
+    labelsFilter.forEach(label => {
+        const forLabel = label.getAttribute('for')
+        const input = document.querySelector(`#${forLabel}`)
+        input.checked ? label.classList.add('active') : ''
+        input.addEventListener('click', () => {
+            const inputs = input.closest('.filter__variants').querySelectorAll('input')
+            if (input.type === 'radio') {
+                inputs.forEach(el => {
+                    const parent = el.parentNode
+                    parent.classList.remove('active')
+                    el === input && el.checked ? parent.classList.add('active') : ''
+                })
+            }
+            if (input.type === 'checkbox') input.checked ? label.classList.add('active') : label.classList.remove('active')
+
+        })
+    })
+}
+
+if (selectFilter) selectFilter.addEventListener('click', () => {
+    selectFilter.classList.toggle('open')
+    containerFilter.classList.toggle('open')
+})
