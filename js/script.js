@@ -181,12 +181,15 @@ if (swipersCatalog.length > 0) {
                 clickable: true,
             },
         })
-        const bullets = swiper.querySelectorAll('.swiper-pagination-bullet')
-        if (bullets.length > 0) bullets.forEach(bullet => {
-            const aria = bullet.getAttribute('aria-label')
-            const nextSlide = aria[aria.length - 1]
-            bullet.addEventListener('mouseenter', () => { if(window.innerWidth > 1150) swiperCatalog.slideTo(nextSlide) })
-        })
+        if (window.innerWidth > 1150) {
+            const bullets = swiper.querySelectorAll('.swiper-pagination-bullet')
+            if (bullets.length > 0) bullets.forEach(bullet => {
+                const aria = bullet.getAttribute('aria-label')
+                const nextSlide = aria[aria.length - 1]
+                bullet.addEventListener('mouseenter', () => { swiperCatalog.slideTo(nextSlide) })
+            })
+        }
+
     })
 }
 
