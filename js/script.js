@@ -210,3 +210,33 @@ if (swipersCatalog.length > 0) {
     })
 }
 
+document.querySelector('.compare #dis').textContent = document.querySelector('.compare #dis').textContent.replace('“МАГАЗИН ДОМОВ”', '')
+
+// FAQ
+
+const faqBlocks = document.querySelectorAll('.faq__block')
+if (faqBlocks.length > 0) {
+
+    let column = 0;
+    const questions = document.querySelectorAll('.faq__question')
+    questions.forEach((q, ind) => {
+        let h = q.offsetHeight
+        if (h > column) {
+            column = h;
+        }
+        if (ind === 5) console.log(h)
+    })
+
+    if (window.innerWidth > 900) questions.forEach(q => q.style.height = `${column + 20}px`)
+
+    window.addEventListener('resize', () => window.innerWidth <= 900 ? questions.forEach(q => q.style.height = `auto`) : questions.forEach(q => q.style.height = `${column + 20}px`))
+
+    faqBlocks.forEach((block, ind, arr) => {
+        const question = block.querySelector('.faq__question')
+        question.addEventListener('click', () => {
+            /* arr.forEach(el => el.classList.remove('open')) */
+            /* block.classList.add('open') */
+            block.classList.toggle('open')
+        })
+    })
+}
