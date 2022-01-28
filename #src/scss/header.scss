@@ -82,7 +82,7 @@
                     background: #ffffff;
                     opacity: 1;
                     visibility: visible;
-                    transition: opacity 0.4s linear, visibility 0.4s linear;
+                    /* transition: opacity 0.3s linear, visibility 0.3s linear; */
                     > * {
                         width: auto;
                         margin-bottom: 16px;
@@ -138,7 +138,7 @@
         @media (max-width: 580px) {
             &.open {
                 .burger {
-                    z-index: 9;
+                    z-index: 3;
                     position: absolute;
                     right: 5px;
                 }

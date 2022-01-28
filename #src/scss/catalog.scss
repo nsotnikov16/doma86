@@ -101,6 +101,7 @@
         width: 100%;
         position: relative;
         z-index: 1;
+        color: $main;
         &:hover {
             border-top: 1px solid #fff;
             &::after {
