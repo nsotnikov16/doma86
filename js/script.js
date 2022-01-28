@@ -9,24 +9,41 @@ const headerMenuMobileContainer = header.querySelector('.header__mobile-menu-con
 const headerInfo = header.querySelector('.header__info')
 const headerSocial = header.querySelector('.header .social')
 const burger = header.querySelector('.burger')
+
+let view = { type: window.innerWidth <= 1000 ? 'mobile' : 'desktop', changeMobile: true, changeDesktop: true }
+
 function mobileView() {
-    headerMenuMobileContainer.append(headerMenuList)
-    headerMenuMobileContainer.append(headerInfo)
-    headerMenuMobileContainer.append(headerSocial)
+    if (view.changeMobile) {
+        headerMenuMobileContainer.append(headerMenuList)
+        headerMenuMobileContainer.append(headerInfo)
+        headerMenuMobileContainer.append(headerSocial)
+    }
+    view.changeDesktop = true
 }
 
 function desktopView() {
-    headerMenu.append(headerMenuList)
-    headerContainer.append(headerInfo)
-    headerContainer.append(headerSocial)
+    if (view.changeDesktop) {
+        headerMenu.append(headerMenuList)
+        headerContainer.append(headerInfo)
+        headerContainer.append(headerSocial)
+    }
+    view.changeMobile = true
 }
-window.innerWidth <= 1000 ? mobileView() : desktopView()
-window.addEventListener('resize', () => window.innerWidth <= 1000 ? mobileView() : desktopView())
+view.type === 'mobile' ? mobileView() : desktopView()
+window.addEventListener('resize', () => {
+    if (window.innerWidth <= 1000) {
+        mobileView()
+        view.changeMobile = false
+    } else {
+        desktopView()
+        view.changeDesktop = false
+    }
+})
 
 burger.addEventListener('click', () => headerMenuMobile.classList.toggle('open'))
 
 // Анимация
-const sectionTitle = document.querySelectorAll('.section__title')
+/* const sectionTitle = document.querySelectorAll('.section__title')
 const sectionSubtitle = document.querySelectorAll('.section__subtitle')
 const sectionDescription = document.querySelectorAll('.section__description')
 
@@ -70,7 +87,7 @@ if (animItems.length > 0) {
     setTimeout(() => {
         animOnScroll();
     }, 10);
-}
+} */
 
 
 // Scroll To
