@@ -1133,6 +1133,113 @@ body {
   height: 17px;
 }
 
+/* Сравнение */
+
+.compare table {
+  /* border-collapse: collapse; */
+  width: 100%;
+  border-spacing: 0;
+}
+
+.compare th div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 36px 30px;
+}
+
+.compare th svg,
+.compare th img {
+  width: 41px;
+  height: 41px;
+  margin-right: 30px;
+}
+
+.compare th:nth-child(2) {
+  background: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.compare th:nth-child(2) div {
+  border: 1px solid #c2d7e0;
+  border-top-left-radius: 5px;
+  border-bottom: none;
+}
+
+.compare th:nth-child(3) {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: right;
+  background: #06ab38;
+  color: #ffffff;
+  border-top-right-radius: 5px;
+  /* div {
+      border: 1px solid #c2d7e0;
+      border-top-right-radius: 5px;
+  } */
+}
+
+.compare td div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.compare td div svg {
+  margin-right: 12px;
+  width: 20px;
+  height: 20px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.compare td:nth-child(1) {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  text-transform: uppercase;
+  border: 1px solid #c2d7e0;
+  border-left: none;
+  width: 28%;
+  padding: 24px 0;
+}
+
+.compare td:nth-child(2) {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  background: #fff;
+  border: 1px solid #c2d7e0;
+  width: 36%;
+  padding: 24px 30px;
+}
+
+.compare td:nth-child(3) {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  background: #06ab38;
+  border: 1px solid #c2d7e0;
+  color: #ffffff;
+  border-right: none;
+  width: 36%;
+  padding: 24px 30px;
+}
+
 /* Подвал */
 
 /* Свайперы */
