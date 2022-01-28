@@ -1,31 +1,65 @@
 .compare {
     table {
-        /* border-collapse: collapse; */
+        border-collapse: collapse;
+        table-layout: fixed;
         width: 100%;
         border-spacing: 0;
     }
 
+    @media (max-width: 767px) {
+        th,
+        td {
+            &:nth-child(1) {
+                display: none;
+            }
+        }
+    }
+
     th {
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 700;
+
+        @media (max-width: 1020px) {
+            font-size: 14px;
+            line-height: 19px;
+        }
+
+        @media(max-width: 580px) {
+            text-align: left !important;
+            div {
+                padding: 14px 20px;
+            }
+        }
+
         div {
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 36px 30px;
+            @media (max-width: 900px) {
+                display: block;
+                padding: 24px 30px;
+            }
+            @media (max-width: 768px) {
+                padding: 20px 25px;
+            }
         }
         svg,
         img {
             width: 41px;
             height: 41px;
             margin-right: 30px;
+            @media (max-width: 900px) {
+                display: none;
+            }
         }
 
         &:nth-child(1) {
         }
         &:nth-child(2) {
             background: #fff;
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 22px;
+
             text-align: right;
             text-transform: uppercase;
             div {
@@ -33,11 +67,17 @@
                 border-top-left-radius: 5px;
                 border-bottom: none;
             }
+
+            @media (max-width: 580px) {
+                border: 1px solid #c2d7e0;
+
+                border-bottom: none;
+                div {
+                    border: none;
+                }
+            }
         }
         &:nth-child(3) {
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 22px;
             text-align: right;
             background: #06ab38;
             color: #ffffff;
@@ -49,6 +89,22 @@
         }
     }
     td {
+        font-size: 16px;
+        line-height: 22px;
+        @media (max-width: 1020px) {
+            font-size: 14px;
+            line-height: 19px;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 13px;
+            line-height: 18px;
+        }
+        @media(max-width: 580px) {
+            font-size: 12px;
+            line-height: 16px;
+            padding: 14px 20px !important;
+        }
         div {
             display: flex;
             align-items: center;
@@ -57,39 +113,56 @@
                 width: 20px;
                 height: 20px;
                 flex-shrink: 0;
+                @media (max-width: 768px) {
+                    margin-right: 10px;
+                    width: 18px;
+                    height: 18px;
+                }
             }
         }
 
         &:nth-child(1) {
             font-weight: 700;
-            font-size: 16px;
-            line-height: 22px;
+
             text-transform: uppercase;
             border: 1px solid #c2d7e0;
             border-left: none;
             width: 28%;
             padding: 24px 0;
+
+            @media (max-width: 1020px) {
+                width: 25%;
+            }
+
+            @media (max-width: 768px) {
+                /* width: 30%; */
+                padding: 20px 0;
+            }
         }
 
         &:nth-child(2) {
             font-weight: 500;
-            font-size: 16px;
-            line-height: 22px;
             background: #fff;
             border: 1px solid #c2d7e0;
             width: 36%;
             padding: 24px 30px;
+            @media (max-width: 1020px) {
+                width: 1fr;
+                padding: 20px 25px;
+            }
         }
         &:nth-child(3) {
             font-weight: 500;
-            font-size: 16px;
-            line-height: 22px;
             background: #06ab38;
             border: 1px solid #c2d7e0;
             color: #ffffff;
             border-right: none;
             width: 36%;
             padding: 24px 30px;
+            @media (max-width: 1020px) {
+                width: 1fr;
+                padding: 20px 25px;
+            }
         }
     }
 }

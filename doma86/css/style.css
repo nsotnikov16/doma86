@@ -1136,9 +1136,16 @@ body {
 /* Сравнение */
 
 .compare table {
-  /* border-collapse: collapse; */
+  border-collapse: collapse;
+  table-layout: fixed;
   width: 100%;
   border-spacing: 0;
+}
+
+.compare th {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 700;
 }
 
 .compare th div {
@@ -1163,9 +1170,6 @@ body {
 
 .compare th:nth-child(2) {
   background: #fff;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 22px;
   text-align: right;
   text-transform: uppercase;
 }
@@ -1177,9 +1181,6 @@ body {
 }
 
 .compare th:nth-child(3) {
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 22px;
   text-align: right;
   background: #06ab38;
   color: #ffffff;
@@ -1188,6 +1189,11 @@ body {
       border: 1px solid #c2d7e0;
       border-top-right-radius: 5px;
   } */
+}
+
+.compare td {
+  font-size: 16px;
+  line-height: 22px;
 }
 
 .compare td div {
@@ -1209,8 +1215,6 @@ body {
 
 .compare td:nth-child(1) {
   font-weight: 700;
-  font-size: 16px;
-  line-height: 22px;
   text-transform: uppercase;
   border: 1px solid #c2d7e0;
   border-left: none;
@@ -1220,8 +1224,6 @@ body {
 
 .compare td:nth-child(2) {
   font-weight: 500;
-  font-size: 16px;
-  line-height: 22px;
   background: #fff;
   border: 1px solid #c2d7e0;
   width: 36%;
@@ -1230,14 +1232,26 @@ body {
 
 .compare td:nth-child(3) {
   font-weight: 500;
-  font-size: 16px;
-  line-height: 22px;
   background: #06ab38;
   border: 1px solid #c2d7e0;
   color: #ffffff;
   border-right: none;
   width: 36%;
   padding: 24px 30px;
+}
+
+/* Отзывы */
+
+.reviews__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.reviews iframe {
+  width: 100%;
+  height: 287px;
+  border-radius: 5px;
 }
 
 /* Подвал */
@@ -1435,6 +1449,12 @@ body {
   }
 }
 
+@media (max-width: 1024px) {
+  .reviews iframe {
+    height: 228px;
+  }
+}
+
 @media (max-width: 1020px) {
   .cover {
     background-size: 120%;
@@ -1478,6 +1498,30 @@ body {
     font-size: 12px;
     line-height: 16px;
     width: 210px;
+  }
+
+  .compare th {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .compare td {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .compare td:nth-child(1) {
+    width: 25%;
+  }
+
+  .compare td:nth-child(2) {
+    width: 1fr;
+    padding: 20px 25px;
+  }
+
+  .compare td:nth-child(3) {
+    width: 1fr;
+    padding: 20px 25px;
   }
 }
 
@@ -1622,6 +1666,22 @@ body {
   }
 }
 
+@media (max-width: 900px) {
+  .compare th div {
+    display: block;
+    padding: 24px 30px;
+  }
+
+  .compare th svg,
+  .compare th img {
+    display: none;
+  }
+
+  .reviews__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .page__container {
     padding: 0 74px;
@@ -1713,6 +1773,26 @@ body {
     line-height: 30px;
   }
 
+  .compare th div {
+    padding: 20px 25px;
+  }
+
+  .compare td {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .compare td div svg {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .compare td:nth-child(1) {
+    /* width: 30%; */
+    padding: 20px 0;
+  }
+
   .popup__img {
     max-width: 85vw;
   }
@@ -1774,6 +1854,11 @@ body {
   .filter__block:first-of-type {
     padding-top: 10px;
   }
+
+  .compare th:nth-child(1),
+  .compare td:nth-child(1) {
+    display: none;
+  }
 }
 
 @media (max-width: 680px) {
@@ -1826,6 +1911,37 @@ body {
   }
 
   .catalog__photo {
+    height: 300px;
+  }
+
+  .compare th {
+    text-align: left !important;
+  }
+
+  .compare th div {
+    padding: 14px 20px;
+  }
+
+  .compare th:nth-child(2) {
+    border: 1px solid #c2d7e0;
+    border-bottom: none;
+  }
+
+  .compare th:nth-child(2) div {
+    border: none;
+  }
+
+  .compare td {
+    font-size: 12px;
+    line-height: 16px;
+    padding: 14px 20px !important;
+  }
+
+  .reviews__container {
+    grid-template-columns: 1fr;
+  }
+
+  .reviews iframe {
     height: 300px;
   }
 }
@@ -1892,6 +2008,18 @@ body {
 
   .banner__btns .btn {
     font-size: calc(12px + 13.6 * (100vw - 360px) / 560);
+  }
+}
+
+@media (max-width: 414px) {
+  .reviews .section__subtitle {
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .reviews iframe {
+    height: 243px;
   }
 }
 

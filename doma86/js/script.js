@@ -210,3 +210,4 @@ if (swipersCatalog.length > 0) {
     })
 }
 
+document.querySelector('.compare #dis').textContent = document.querySelector('.compare #dis').textContent.replace('“МАГАЗИН ДОМОВ”', '')

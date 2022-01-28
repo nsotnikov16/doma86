@@ -1,0 +1,40 @@
+.reviews {
+
+    @media(max-width: 414px) {
+        .section__subtitle {
+            max-width: 60%;
+            margin-left:auto;
+            margin-right: auto;
+        }
+    }
+
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        @media(max-width: 900px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media(max-width: 580px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    iframe {
+        width: 100%;
+        height: 287px;
+        border-radius: 5px;
+        @media(max-width: 1024px) {
+            height: 228px;
+        }
+
+        @media(max-width: 580px) {
+            height: 300px;
+        }
+
+        @media(max-width: 414px) {
+            height: 243px;
+        }
+    }
+}

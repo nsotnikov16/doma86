@@ -18,16 +18,22 @@
 <body>
     <!-- Главная -->
     <div class="page">
-        <!-- Шапка -->
+        <!-- Блоки с обложкой -->
         <div class="cover">
+            <!-- Шапка -->
             @@include('components/_header.html')
+            <!-- Баннер -->
             @@include('components/_banner.html')
 
         </div>
 
         <main class="main">
+            <!-- Каталог -->
             @@include('components/_catalog.html')
+            <!-- Сравнение -->
             @@include('components/_compare.html')
+            <!-- Отзывы -->
+            @@include('components/_reviews.html')
             
         </main>
         <!-- @@include('components/_map.html') -->
