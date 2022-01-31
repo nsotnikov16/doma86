@@ -208,7 +208,13 @@ if (swipersCatalog.length > 0) {
         }
 
     })
+
+
 }
+
+/* Либо через бэкенд сокращать строку наименования дома */
+/* setHeight('.catalog_ready .catalog__name', true)
+setHeight('.catalog_catalog .catalog__name', true) */
 
 document.querySelector('.compare #dis').textContent = document.querySelector('.compare #dis').textContent.replace('“МАГАЗИН ДОМОВ”', '')
 
@@ -217,19 +223,12 @@ document.querySelector('.compare #dis').textContent = document.querySelector('.c
 const faqBlocks = document.querySelectorAll('.faq__block')
 if (faqBlocks.length > 0) {
 
-    let column = 0;
     const questions = document.querySelectorAll('.faq__question')
-    questions.forEach((q, ind) => {
-        let h = q.offsetHeight
-        if (h > column) {
-            column = h;
-        }
-        if (ind === 5) console.log(h)
-    })
+    const faqBlocksHeight = setHeight('.faq__question')
 
-    if (window.innerWidth > 900) questions.forEach(q => q.style.height = `${column + 20}px`)
+    if (window.innerWidth > 900) questions.forEach(q => q.style.height = `${faqBlocksHeight + 20}px`)
 
-    window.addEventListener('resize', () => window.innerWidth <= 900 ? questions.forEach(q => q.style.height = `auto`) : questions.forEach(q => q.style.height = `${column + 20}px`))
+    window.addEventListener('resize', () => window.innerWidth <= 900 ? questions.forEach(q => q.style.height = `auto`) : questions.forEach(q => q.style.height = `${faqBlocksHeight + 20}px`))
 
     faqBlocks.forEach((block, ind, arr) => {
         const question = block.querySelector('.faq__question')
@@ -239,4 +238,21 @@ if (faqBlocks.length > 0) {
             block.classList.toggle('open')
         })
     })
+}
+
+
+
+function setHeight(selector, set) {
+    let column = 0
+    const elements = document.querySelectorAll(selector)
+    elements.forEach(q => {
+        let h = q.offsetHeight
+        if (h > column) {
+            column = h;
+        }
+    })
+
+    if(set === true) elements.forEach(q => q.style.height = `${column}px`)
+
+    return column
 }
