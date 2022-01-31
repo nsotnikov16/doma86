@@ -526,9 +526,11 @@ body {
 }
 
 .background-purple {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(-22.81%, rgba(196, 196, 196, 0)), to(#ffffff));
-  background: -o-linear-gradient(top, rgba(196, 196, 196, 0) -22.81%, #ffffff 100%);
-  background: linear-gradient(180deg, rgba(196, 196, 196, 0) -22.81%, #ffffff 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(#7c509a), to(#67159e));
+  background: -o-linear-gradient(top, #7c509a 0%, #67159e 100%);
+  background: linear-gradient(180deg, #7c509a 0%, #67159e 100%);
+  -webkit-box-shadow: 0px 26px 10px -5px rgba(123, 78, 154, 0.15);
+          box-shadow: 0px 26px 10px -5px rgba(123, 78, 154, 0.15);
 }
 
 /* Повторяющиеся элементы */
@@ -643,10 +645,30 @@ body {
 
 .social #whatsapp {
   background: #48c95f;
+  border: 1px solid #48c95f;
+}
+
+.social #whatsapp:hover {
+  background: #ffffff;
+  border: 1px solid #c2d7e0;
+}
+
+.social #whatsapp:hover svg {
+  fill: #48C95F;
 }
 
 .social #viber {
   background: #7c509a;
+  border: 1px solid #7c509a;
+}
+
+.social #viber:hover {
+  background: #ffffff;
+  border: 1px solid #c2d7e0;
+}
+
+.social #viber:hover svg {
+  fill: #7C509A;
 }
 
 /* Бургер */
@@ -1438,6 +1460,148 @@ body {
   text-align: center;
 }
 
+/* Доверие */
+
+.trust .section__title {
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+.trust__cards {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.trust__card {
+  min-height: 310px;
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #c2d7e0;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.trust__card:hover {
+  border: 1px solid #28cb5a;
+  border-radius: none;
+}
+
+.trust__card:hover::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #28cb5a;
+  border-radius: 5px;
+}
+
+.trust svg {
+  width: 50px;
+  height: 50px;
+}
+
+.trust__title {
+  font-size: 22px;
+  line-height: 30px;
+  margin: 11px 0 15px;
+}
+
+.trust__subtitle {
+  font-size: 14px;
+  line-height: 19px;
+}
+
+/* Хотите рабоать с нами? */
+
+.contact {
+  padding: 87px 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.8)), to(rgba(255, 255, 255, 0.8)));
+  background: -o-linear-gradient(bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
+  border: 1px solid #c2d7e0;
+  border-radius: 5px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.contact__links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contact__link {
+  margin-bottom: 10px;
+}
+
+.contact__link:last-of-type {
+  margin-bottom: 0;
+}
+
+.contact__link a {
+  width: 250px;
+  height: 52px;
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.contact__link a svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
+
+.contact__text {
+  max-width: 65%;
+}
+
+.contact__title {
+  font-size: 48px;
+  line-height: 66px;
+  font-weight: 700;
+  margin: 5px 0 20px;
+}
+
+.contact__subtitle {
+  font-size: 24px;
+  line-height: 33px;
+}
+
+.contact img {
+  position: absolute;
+  max-width: 600px;
+  opacity: 0.1;
+  bottom: 0;
+  left: 10%;
+}
+
 /* Подвал */
 
 /* Свайперы */
@@ -1660,6 +1824,39 @@ body {
   .dreams li {
     font-size: 13px;
     line-height: 22px;
+  }
+
+  .trust svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .trust__title {
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+  .trust__subtitle {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .contact__title {
+    font-size: 32px;
+    line-height: 44px;
+  }
+
+  .contact__subtitle {
+    font-size: 20px;
+    line-height: 27px;
+  }
+
+  .contact__text {
+    max-width: 50%;
+  }
+
+  .contact img {
+    left: 4%;
   }
 }
 
@@ -1945,6 +2142,48 @@ body {
     max-width: 80%;
     margin: 20px auto 0;
   }
+
+  .trust__cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+  }
+
+  .trust__card {
+    min-height: 220px;
+  }
+
+  .trust__card:nth-child(4) {
+    grid-row: 3/4;
+  }
+
+  .trust__card:nth-child(8) {
+    grid-column: 3/4;
+    grid-row: 2/3;
+  }
+
+  .trust__card:nth-child(7) {
+    grid-column: 2/4;
+  }
+
+  .contact {
+    padding: 62px 30px;
+    overflow: hidden;
+  }
+
+  .contact__title {
+    margin-bottom: 12px;
+    font-size: 24px;
+    line-height: 33px;
+  }
+
+  .contact__subtitle {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .contact img {
+    left: 0;
+  }
 }
 
 @media (max-width: 768px) {
@@ -2063,6 +2302,15 @@ body {
     line-height: 19px;
   }
 
+  .trust__card {
+    padding: 15px;
+  }
+
+  .trust__title {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
   .popup__img {
     max-width: 85vw;
   }
@@ -2128,6 +2376,40 @@ body {
   .compare th:nth-child(1),
   .compare td:nth-child(1) {
     display: none;
+  }
+
+  .contact {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: initial;
+        -ms-flex-align: initial;
+            align-items: initial;
+    padding: 60px 20px;
+  }
+
+  .contact img {
+    bottom: -85px;
+    opacity: 0.1;
+  }
+
+  .contact__text {
+    max-width: initial;
+  }
+
+  .contact__links {
+    margin-top: 30px;
+  }
+
+  .contact__link {
+    width: 100%;
+    margin: 0 15px 10px;
+  }
+
+  .contact__link a {
+    width: 100%;
+    z-index: 2;
   }
 }
 
@@ -2242,6 +2524,26 @@ body {
 
   .reviews iframe {
     height: 300px;
+  }
+
+  .trust svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  .trust__cards {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .trust__card {
+    min-height: initial;
+    padding: 20px;
+  }
+
+  .trust__card:nth-child(n) {
+    grid-column: initial;
+    grid-row: initial;
   }
 }
 
