@@ -123,10 +123,26 @@
 
     #whatsapp {
         background: #48c95f;
+        border: 1px solid #48c95f;
+        &:hover {
+            background: #ffffff;
+            border: 1px solid #c2d7e0;
+            svg {
+                fill: #48C95F;
+            }
+        }
     }
 
     #viber {
         background: #7c509a;
+        border: 1px solid #7c509a;
+        &:hover {
+            background: #ffffff;
+            border: 1px solid #c2d7e0;
+            svg {
+                fill: #7C509A;;
+            }
+        }
     }
 }
 
