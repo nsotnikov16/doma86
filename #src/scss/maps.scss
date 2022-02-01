@@ -1,0 +1,107 @@
+.maps {
+    height: 500px;
+    width: 100%;
+    &__container {
+        position: relative;
+    }
+
+    &__absolute {
+        position: absolute;
+        top: 150px;
+        left: 5%;
+        max-width: 300px;
+        padding: 21px 33px;
+        background: #ffffff;
+        border: 1px solid #c2d7e0;
+        border-radius: 5px;
+        z-index: 10;
+    }
+
+    &__top {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        svg {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            margin-right: 17px;
+        }
+
+        h4 {
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 22px;
+        }
+    }
+    p {
+        position: relative;
+        font-size: 14px;
+        line-height: 19px;
+        /* &::after {
+            position: absolute;
+            content: "";
+            top: -5px;
+            right: -45px;
+            background: #fff;
+            width: 20px;
+            height: 20px;
+            transform: rotate(45deg);
+            border: 1px solid #C2D7E0;
+            border-bottom: 0;
+            border-left: 0;
+        } */
+    }
+
+    @media (max-width: 1024px) {
+        height: 300px;
+
+        &__absolute {
+            top: 50px;
+            padding: 30px 33px;
+            max-width: 290px;
+        }
+
+        &__top {
+            h4 {
+                font-size: 20px;
+                line-height: 20px;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        height: 460px;
+        &__absolute {
+            top: 145px;
+            padding: 20px 30px;
+            max-width: 250px;
+        }
+
+        &__top {
+            h4 {
+                font-size: 16px;
+                line-height: 16px;
+            }
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 12px;
+            line-height: 16px;
+        }
+    }
+
+    @media(max-width: 767px) {
+        &__absolute {
+            top: 20px;
+            left: 25%;
+        }
+    }
+
+    @media(max-width: 580px) {
+        padding-top: 25px;
+        &__absolute {
+            display: none;
+        }
+    }
+}

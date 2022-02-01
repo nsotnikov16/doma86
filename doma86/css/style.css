@@ -1602,7 +1602,88 @@ body {
   left: 10%;
 }
 
+/* Карты */
+
+.maps {
+  height: 500px;
+  width: 100%;
+}
+
+.maps__container {
+  position: relative;
+}
+
+.maps__absolute {
+  position: absolute;
+  top: 150px;
+  left: 5%;
+  max-width: 300px;
+  padding: 21px 33px;
+  background: #ffffff;
+  border: 1px solid #c2d7e0;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.maps__top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+}
+
+.maps__top svg {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  margin-right: 17px;
+}
+
+.maps__top h4 {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 22px;
+}
+
+.maps p {
+  position: relative;
+  font-size: 14px;
+  line-height: 19px;
+  /* &::after {
+      position: absolute;
+      content: "";
+      top: -5px;
+      right: -45px;
+      background: #fff;
+      width: 20px;
+      height: 20px;
+      transform: rotate(45deg);
+      border: 1px solid #C2D7E0;
+      border-bottom: 0;
+      border-left: 0;
+  } */
+}
+
 /* Подвал */
+
+.footer {
+  background: #FFFFFF;
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 25px 0;
+}
 
 /* Свайперы */
 
@@ -1857,6 +1938,21 @@ body {
 
   .contact img {
     left: 4%;
+  }
+
+  .maps {
+    height: 300px;
+  }
+
+  .maps__absolute {
+    top: 50px;
+    padding: 30px 33px;
+    max-width: 290px;
+  }
+
+  .maps__top h4 {
+    font-size: 20px;
+    line-height: 20px;
   }
 }
 
@@ -2311,6 +2407,30 @@ body {
     line-height: 22px;
   }
 
+  .maps {
+    height: 460px;
+  }
+
+  .maps__absolute {
+    top: 145px;
+    padding: 20px 30px;
+    max-width: 250px;
+  }
+
+  .maps__top {
+    margin-bottom: 10px;
+  }
+
+  .maps__top h4 {
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  .maps p {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
   .popup__img {
     max-width: 85vw;
   }
@@ -2410,6 +2530,11 @@ body {
   .contact__link a {
     width: 100%;
     z-index: 2;
+  }
+
+  .maps__absolute {
+    top: 20px;
+    left: 25%;
   }
 }
 
@@ -2544,6 +2669,14 @@ body {
   .trust__card:nth-child(n) {
     grid-column: initial;
     grid-row: initial;
+  }
+
+  .maps {
+    padding-top: 25px;
+  }
+
+  .maps__absolute {
+    display: none;
   }
 }
 
