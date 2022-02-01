@@ -1,0 +1,146 @@
+.lightbox {
+    max-width: 940px;
+    max-height: 636px;
+    padding: 30px 35px;
+    background-color: #fff;
+    border: 1px solid #28cb5a;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    gap: 32px 24px;
+    &__swiper {
+        height: 100%;
+        width: 100%;
+        min-width: 0;
+        /* max-width: 507px; */
+    }
+
+    &__description {
+        max-width: 335px;
+    }
+
+    &__description-house {
+        margin-top: 16px;
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    &__row {
+        margin-bottom: 27px;
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+        b {
+            font-size: 12px;
+            line-height: 16px;
+        }
+    }
+
+    &__contacts {
+        border: 1px solid #eaf5fa;
+        border-radius: 5px;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        p {
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 16px;
+            max-width: 276px;
+        }
+    }
+
+    &__prices {
+        display: flex;
+        align-items: center;
+    }
+
+    .catalog__price {
+        background: #fafdff;
+        border: 1px solid #c2d7e0;
+        border-radius: 5px;
+        font-size: 18px;
+        line-height: 21px;
+        padding: 10px 24px;
+        .green {
+            font-size: 26px;
+            line-height: 30px;
+        }
+        &.mortgage {
+            border: 1px solid #eaf5fa;
+            box-sizing: border-box;
+            border-radius: 0px 5px 5px 0px;
+            padding: 18px 20px;
+            font-size: 16px;
+            line-height: 18px;
+            .green {
+                font-size: 16px;
+                line-height: 18px;
+            }
+        }
+    }
+
+    .catalog__name {
+        margin: 0 0 30px;
+    }
+    .catalog__specifications {
+        padding: 16px 0 0;
+        grid-template-columns: max-content max-content;
+        gap: 17px 40px;
+    }
+
+    .catalog__specification::before {
+        top: 2px;
+    }
+    /* Свайпер Лайтбокса */
+    .swiper-slide {
+        border-radius: 5px;
+    }
+    .swiper-lightbox {
+        .swiper-wrapper {
+            height: 384px;
+        }
+
+        .swiper-slide {
+            object-fit: cover;
+        }
+        .swiper-pagination {
+            font-size: 12px;
+            line-height: 16px;
+            color: $main;
+            ::after {
+                position: absolute;
+                content: "";
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #fff;
+                width: 10%;
+                height: 103%;
+                margin: 0 auto;
+                /* z-index: 10; */
+                opacity: 0.7;
+                z-index: -1;
+                border-radius: 27px;
+            }
+        }
+    }
+
+    .swiper-lightbox-thumbs {
+        margin-top: 11px;
+        .swiper-wrapper {
+            height: 85px;
+        }
+
+        .swiper-slide {
+            object-fit: cover;
+            opacity: 0.5;
+        }
+
+        .swiper-slide-thumb-active {
+            opacity: 1;
+        }
+    }
+}

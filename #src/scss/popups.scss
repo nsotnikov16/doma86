@@ -31,10 +31,10 @@
         top: 25px;
         right: 20px; 
         font-size: 25px;
-        color: rgba(17,24,39, 0.5); 
+        color: $main; 
         font-weight: 300;
         &:hover {
-            color: $main;
+            color: $green;
         }
     }
 

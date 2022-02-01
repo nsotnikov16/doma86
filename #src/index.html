@@ -15,7 +15,7 @@
         type="text/javascript"></script>
 
     <!-- Marquiz script start -->
-    <script>
+    <!-- <script>
         (function (w, d, s, o) {
             var j = d.createElement(s); j.async = true; j.src = '//script.marquiz.ru/v2.js'; j.onload = function () {
                 if (document.readyState !== 'loading') Marquiz.init(o);
@@ -34,7 +34,7 @@
             disableOnMobile: false
         }
         );
-    </script>
+    </script> -->
     <!-- Marquiz script end -->
 </head>
 
@@ -54,7 +54,7 @@
             <!-- Каталог -->
             @@include('components/_catalog.html')
             <!-- Квиз -->
-            @@include('components/_quiz.html')
+            <!-- @@include('components/_quiz.html') -->
             <!-- Сравнение -->
             @@include('components/_compare.html')
             <!-- Отзывы -->
@@ -75,34 +75,14 @@
         </a> -->
     </div>
 
-    <!-- <div id="callback" class="popup">
+    <div id="lightbox" class="popup popup_opened">
         <div class="popup__container">
             <div class="popup__content">
-                <form class="form">
-                    <h3 class="form-title">оставьте ЗАЯВКУ</h3>
-                    <p class="form-subtitle">Мы вам перезвоним через 3 минуты
-                        и подробно ответим на все ваши вопросы</p>
-                    <div class="form-row">
-                        <label for="callback-phone" class="form-label">Ваш телефон <span>*</span></label>
-                        <input type="tel" maxlength="12" name="phone" id="callback-phone" class="form-input"
-                            autocomplete="off" required>
-                    </div>
-                    <div class="form-row">
-                        <label for="callback-name" class="form-label">Ваше имя (необязательно)</label>
-                        <input type="text" maxlength="30" name="name" id="callback-name" class="form-input"
-                            autocomplete="off">
-                    </div>
-                    <div class="form-row message">
-                        <label for="callback-message" class="form-label">Текст вопроса (необязательно)</label>
-                        <textarea type="text" name="message" id="callback-message" class="form-input"
-                            autocomplete="off"></textarea>
-                    </div>
-                    <button class="btn">Отправить</button>
-                </form>
+                @@include('components/_lightbox.html')
             </div>
             <button class="popup__close">&#10006;</button>
         </div>
-    </div> -->
+    </div>
 
     <!-- <div id="photo" class="popup">
         <div class="popup__container">

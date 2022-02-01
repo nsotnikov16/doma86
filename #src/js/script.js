@@ -297,3 +297,26 @@ function init() {
 
     myMap.geoObjects.add(myPlacemarkWithContent);
 }
+
+
+// Swiper LightBox
+var swiperLightboxThumbs = new Swiper(".swiper-lightbox-thumbs", {
+    spaceBetween: 10,
+    slidesPerView: 4,
+    freeMode: true,
+    watchSlidesProgress: true,
+});
+var swiperLightbox = new Swiper(".swiper-lightbox", {
+    spaceBetween: 10,
+    /* navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    }, */
+    thumbs: {
+        swiper: swiperLightboxThumbs,
+    },
+    pagination: {
+        el: ".swiper-lightbox .swiper-pagination",
+        type: "fraction",
+    },
+});

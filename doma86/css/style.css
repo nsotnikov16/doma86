@@ -1081,6 +1081,14 @@ body {
   background-image: url(../img/deadlines.svg);
 }
 
+.catalog__specification.garage::before {
+  background-image: url(../img/garage.svg);
+}
+
+.catalog__specification.terrace::before {
+  background-image: url(../img/terrace.svg);
+}
+
 .catalog__price {
   padding: 10px 0;
   display: -webkit-box;
@@ -1887,12 +1895,12 @@ body {
   top: 25px;
   right: 20px;
   font-size: 25px;
-  color: rgba(17, 24, 39, 0.5);
+  color: #24284b;
   font-weight: 300;
 }
 
 .popup__close:hover {
-  color: #24284b;
+  color: #28cb5a;
 }
 
 .popup__img {
@@ -1909,6 +1917,181 @@ body {
   color: white;
   right: -10px;
   top: -25px;
+}
+
+/* Lightbox */
+
+.lightbox {
+  max-width: 940px;
+  max-height: 636px;
+  padding: 30px 35px;
+  background-color: #fff;
+  border: 1px solid #28cb5a;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 1fr -webkit-max-content;
+  grid-template-columns: 1fr max-content;
+  gap: 32px 24px;
+  /* Свайпер Лайтбокса */
+}
+
+.lightbox__swiper {
+  height: 100%;
+  width: 100%;
+  min-width: 0;
+  /* max-width: 507px; */
+}
+
+.lightbox__description {
+  max-width: 335px;
+}
+
+.lightbox__description-house {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.lightbox__row {
+  margin-bottom: 27px;
+}
+
+.lightbox__row:last-of-type {
+  margin-bottom: 0;
+}
+
+.lightbox__row b {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.lightbox__contacts {
+  border: 1px solid #eaf5fa;
+  border-radius: 5px;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.lightbox__contacts p {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  max-width: 276px;
+}
+
+.lightbox__prices {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.lightbox .catalog__price {
+  background: #fafdff;
+  border: 1px solid #c2d7e0;
+  border-radius: 5px;
+  font-size: 18px;
+  line-height: 21px;
+  padding: 10px 24px;
+}
+
+.lightbox .catalog__price .green {
+  font-size: 26px;
+  line-height: 30px;
+}
+
+.lightbox .catalog__price.mortgage {
+  border: 1px solid #eaf5fa;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 0px 5px 5px 0px;
+  padding: 18px 20px;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.lightbox .catalog__price.mortgage .green {
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.lightbox .catalog__name {
+  margin: 0 0 30px;
+}
+
+.lightbox .catalog__specifications {
+  padding: 16px 0 0;
+  grid-template-columns: -webkit-max-content -webkit-max-content;
+  grid-template-columns: max-content max-content;
+  gap: 17px 40px;
+}
+
+.lightbox .catalog__specification::before {
+  top: 2px;
+}
+
+.lightbox .swiper-slide {
+  border-radius: 5px;
+}
+
+.lightbox .swiper-lightbox .swiper-wrapper {
+  height: 384px;
+}
+
+.lightbox .swiper-lightbox .swiper-slide {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.lightbox .swiper-lightbox .swiper-pagination {
+  font-size: 12px;
+  line-height: 16px;
+  color: #24284b;
+}
+
+.lightbox .swiper-lightbox .swiper-pagination ::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  width: 10%;
+  height: 103%;
+  margin: 0 auto;
+  /* z-index: 10; */
+  opacity: 0.7;
+  z-index: -1;
+  border-radius: 27px;
+}
+
+.lightbox .swiper-lightbox-thumbs {
+  margin-top: 11px;
+}
+
+.lightbox .swiper-lightbox-thumbs .swiper-wrapper {
+  height: 85px;
+}
+
+.lightbox .swiper-lightbox-thumbs .swiper-slide {
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0.5;
+}
+
+.lightbox .swiper-lightbox-thumbs .swiper-slide-thumb-active {
+  opacity: 1;
 }
 
 @media (max-width: 1200px) {

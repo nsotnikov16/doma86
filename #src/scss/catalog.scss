@@ -72,6 +72,18 @@
                 background-image: url(../img/deadlines.svg);
             }
         }
+
+        &.garage {
+            &::before {
+                background-image: url(../img/garage.svg);
+            }
+        }
+
+        &.terrace {
+            &::before {
+                background-image: url(../img/terrace.svg);
+            }
+        }
     }
 
     &__price {
@@ -215,14 +227,4 @@
             height: 194px;
         }
     }
-}
-.size {
-}
-.rooms {
-}
-.square {
-}
-.deadlines {
-}
-.green {
 }
