@@ -15,7 +15,11 @@
 
     &__block {
         z-index: 1;
-
+        &:hover {
+            .faq__question/* , .faq__answer */ {
+                border: 1px solid #28CB5A;
+            }
+        }
         &.open {
             .faq__answer {
                 /* display: block; */

@@ -128,7 +128,7 @@
             background: #ffffff;
             border: 1px solid #c2d7e0;
             svg {
-                fill: #48C95F;
+                fill: #48c95f;
             }
         }
     }
@@ -140,7 +140,7 @@
             background: #ffffff;
             border: 1px solid #c2d7e0;
             svg {
-                fill: #7C509A;;
+                fill: #7c509a;
             }
         }
     }
@@ -186,6 +186,11 @@
         text-align: center;
         font-weight: 400;
         margin-bottom: 26px;
+        a {
+            &:hover {
+                color: #48c95f;
+            }
+        }
     }
 
     &__subtitle {
@@ -196,6 +201,11 @@
         a {
             /* padding-bottom: 2px; */
             border-bottom: 1px solid $main;
+
+            &:hover {
+                color: #48c95f;
+                border-bottom: 1px solid #48c95f;
+            }
         }
     }
 

@@ -91,8 +91,7 @@ if (animItems.length > 0) {
 
 
 // Scroll To
-/* $('.scroll-to').on('click', function () {
-    headerMobile.classList.remove('open-menu')
+$('.scroll-to').on('click', function () {
     let href = $(this).attr('href');
 
     $('html, body').animate({
@@ -103,7 +102,7 @@ if (animItems.length > 0) {
     });
 
     return false;
-}); */
+});
 
 
 // Popups
