@@ -158,13 +158,13 @@
             line-height: 19px;
         }
 
-        @media(max-width: 580px) {
+        @media (max-width: 580px) {
             flex-direction: column;
         }
     }
 
     &__copyright {
-        @media(max-width: 580px) {
+        @media (max-width: 580px) {
             margin-bottom: 12px;
         }
     }
@@ -172,6 +172,9 @@
     &__dev {
         a {
             text-decoration: underline;
+            &:hover {
+                color: #28cb5a;
+            }
         }
     }
 
@@ -185,37 +188,14 @@
         @media (max-width: 900) {
             transform: translateY(0);
         }
+
+        &:hover {
+            color: #28cb5a;
+        }
     }
 
     hr {
         background: #c2d7e0;
         opacity: 0.3;
-    }
-}
-.page {
-    &__container {
-    }
-}
-.logo {
-    &__img {
-    }
-
-    &__title {
-    }
-
-    &__subtitle {
-    }
-}
-.scroll-to {
-}
-.info {
-    &__block {
-    }
-
-    &__text {
-    }
-}
-.social {
-    &__item {
     }
 }

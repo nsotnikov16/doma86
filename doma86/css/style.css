@@ -1775,6 +1775,10 @@ body {
   text-decoration: underline;
 }
 
+.footer__dev a:hover {
+  color: #28cb5a;
+}
+
 .footer__politic {
   font-weight: 600;
   font-size: 14px;
@@ -1785,6 +1789,10 @@ body {
   display: block;
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
+}
+
+.footer__politic:hover {
+  color: #28cb5a;
 }
 
 .footer hr {
