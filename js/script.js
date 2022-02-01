@@ -91,8 +91,7 @@ if (animItems.length > 0) {
 
 
 // Scroll To
-/* $('.scroll-to').on('click', function () {
-    headerMobile.classList.remove('open-menu')
+$('.scroll-to').on('click', function () {
     let href = $(this).attr('href');
 
     $('html, body').animate({
@@ -103,7 +102,7 @@ if (animItems.length > 0) {
     });
 
     return false;
-}); */
+});
 
 
 // Popups
@@ -252,7 +251,49 @@ function setHeight(selector, set) {
         }
     })
 
-    if(set === true) elements.forEach(q => q.style.height = `${column}px`)
+    if (set === true) elements.forEach(q => q.style.height = `${column}px`)
 
     return column
+}
+
+
+// YMaps
+ymaps.ready(init);
+
+function init() {
+    var myMap = new ymaps.Map(
+        "map",
+        {
+            center: [/* 61.247076, 73.377429 */61.247076, 73.376189],
+            zoom: 17,
+            controls: ['zoomControl', 'geolocationControl'],
+        },
+        {
+            searchControlProvider: "yandex#search",
+            zoomControlPosition: { right: 10, top: 250 },
+            zoomControlSize: 'small',
+            geolocationControlPosition: { right: 10, top: 330 }
+        }
+    )
+
+    var Balloon = ymaps.templateLayoutFactory.createClass(
+        `<div style="display: flex; align-items: center;"><img style="width: 20px; height: 20px; margin-right: 10px;" src="./img/logo.png"/><p style="font-weight: 500; font-size: 16px;">Магазин Домов</p></div>`
+    )
+
+    var myPlacemarkWithContent = new ymaps.Placemark(
+        [61.247076, 73.376189],
+        {},
+        {
+            iconImageHref: "./img/logo.png",
+            iconImageSize: [25, 25],
+            iconLayout: "default#imageWithContent",
+            iconContentOffset: [12.5, 10],
+            iconImageOffset: [-15, -10],
+            balloonContentLayout: Balloon,
+            balloonPanelMaxMapArea: 0,
+            hideIconOnBalloonOpen: false,
+        }
+    );
+
+    myMap.geoObjects.add(myPlacemarkWithContent);
 }
