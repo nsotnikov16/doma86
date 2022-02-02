@@ -2190,6 +2190,12 @@ body {
 }
 
 @media (max-width: 1024px) {
+  .banner__title span:hover .banner__tooltip {
+    max-width: 300px;
+    top: -65%;
+    right: -210%;
+  }
+
   .reviews iframe {
     height: 228px;
   }
@@ -2352,6 +2358,12 @@ body {
 }
 
 @media (max-width: 1019px) {
+  .banner__title span:hover .banner__tooltip {
+    max-width: 300px;
+    top: -110%;
+    right: -282%;
+  }
+
   .filter__container {
     gap: 20px 45px;
     grid-template-columns: repeat(2, 1fr);
@@ -2494,6 +2506,7 @@ body {
   #lightbox .popup__close {
     top: 35px;
     right: 35px;
+    z-index: 22;
   }
 
   .lightbox {
@@ -3239,15 +3252,34 @@ body {
     font-size: 38px;
     line-height: 45px;
     max-width: 100%;
+    position: relative;
   }
 
   .banner__title span {
-    color: #24284b;
-    border-bottom: 0;
+    /* color: $main;
+    border-bottom: 0; */
+    position: initial;
   }
 
   .banner__title span:hover .banner__tooltip {
-    display: none;
+    /* display: none; */
+    top: -110%;
+    right: 0;
+    left: 0;
+    font-size: 15px;
+    line-height: 120%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .banner__title span:hover .banner__tooltip svg {
+    bottom: -24px;
+    right: 47%;
+    left: initial;
+    top: initial;
+    -webkit-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+            transform: rotate(-90deg);
   }
 
   .banner__subtitle {
@@ -3311,6 +3343,10 @@ body {
 }
 
 @media (max-width: 450px) {
+  .banner__title span:hover .banner__tooltip {
+    top: -140%;
+  }
+
   .footer__block:nth-of-type(1) {
     grid-column: 1/2;
   }
@@ -3377,6 +3413,10 @@ body {
 }
 
 @media (max-width: 320px) {
+  .banner__title span:hover .banner__tooltip {
+    top: -190%;
+  }
+
   .filter__variants {
     grid-template-columns: 1fr;
     gap: 8px 20px;
