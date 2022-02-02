@@ -535,6 +535,8 @@ body {
 
 /* Повторяющиеся элементы */
 
+/* Обложка */
+
 .cover {
   position: relative;
   background-image: url(../img/cover.jpg);
@@ -2740,9 +2742,15 @@ body {
     width: 100%;
     height: 100%;
     background: #f7fbfd;
+    /* background: linear-gradient(
+        90deg,
+        rgba(232, 244, 255, 0.76) 6.43%,
+        rgba(246, 251, 255, 0.1596) 58.83%,
+        rgba(250, 252, 255, 0) 76.91%,
+        rgba(255, 255, 255, 0.76) 100%
+    ); */
     opacity: 0.6;
-    -webkit-filter: blur(190.693px);
-            filter: blur(190.693px);
+    /* filter: blur(190.693px); */
   }
 
   .section {
