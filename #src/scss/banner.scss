@@ -21,6 +21,16 @@
                 }
             }
         }
+
+        overflow: hidden;
+        opacity: 0;
+        transform: translateX(-20%);
+        transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+        &._animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
     }
 
     &__tooltip {
@@ -55,6 +65,16 @@
         font-size: 24px;
         line-height: 34px;
         max-width: 400px;
+
+        overflow: hidden;
+        opacity: 0;
+        transform: translateX(20%);
+        transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+        &._animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
     }
 
     &__btns {
@@ -243,6 +263,31 @@
                     }
                 }
             }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .banner .btn[href="#quiz"] {
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(20%);
+        transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+        &._animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .banner .btn[href="#ready"] {
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-20%);
+        transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+        &._animate {
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 }
