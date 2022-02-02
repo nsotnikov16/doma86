@@ -3344,6 +3344,12 @@ body {
   }
 }
 
+@media (max-width: 430px) {
+  .banner {
+    padding: 68% 0 15%;
+  }
+}
+
 @media (max-width: 414px) {
   .reviews .section__subtitle {
     max-width: 60%;
