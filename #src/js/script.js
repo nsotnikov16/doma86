@@ -110,37 +110,35 @@ class Popup {
     constructor(popupElement) {
         this._popupElement = popupElement;
         this._closeButton = this._popupElement.querySelector('.popup__close');
-        this._img = this._popupElement.id === "photo" ? this._popupElement.querySelector('.popup__img') : null;
-        this._source = this._img ? this._img.previousElementSibling : null;
         this._handleEscClose = this._handleEscClose.bind(this)
         this._openingLinks = document.querySelectorAll(`[data-pointer="${this._popupElement.id}"]`)
         this.setEventListeners()
     }
 
     open(el) {
-        if (this._img) this._img.src = el.src
-        if (this._source) this._source.srcset = el.src
         document.body.style.overflow = "hidden";
         this._popupElement.classList.add('popup_opened')
         document.addEventListener('keydown', this._handleEscClose);
     }
 
     close() {
-        if (this._img) this._img.src = ""
         this._popupElement.classList.remove('popup_opened');
         document.body.style.overflow = "visible";
+        if (this._popupElement.id === 'lightbox') lightBox.destroy()
         document.removeEventListener('keydown', this._handleEscClose);
     }
 
     _handleEscClose(evt) {
         if (evt.keyCode === 27) {
             this.close();
+            if (this._popupElement.id === 'lightbox') lightBox.destroy()
         }
     }
 
     _handleOverlayClick(evt) {
         if (evt.target === evt.currentTarget) {
             this.close();
+            if (this._popupElement.id === 'lightbox') lightBox.destroy()
         }
     }
 
@@ -299,24 +297,118 @@ function init() {
 }
 
 
-// Swiper LightBox
-var swiperLightboxThumbs = new Swiper(".swiper-lightbox-thumbs", {
-    spaceBetween: 10,
-    slidesPerView: 4,
-    freeMode: true,
-    watchSlidesProgress: true,
-});
-var swiperLightbox = new Swiper(".swiper-lightbox", {
-    spaceBetween: 10,
-    /* navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    }, */
-    thumbs: {
-        swiper: swiperLightboxThumbs,
-    },
-    pagination: {
-        el: ".swiper-lightbox .swiper-pagination",
-        type: "fraction",
-    },
-});
+// LightBox
+class LightBox {
+    constructor() {
+        this.lightBox = document.querySelector('#lightbox')
+        this.swiperThumbs = null;
+        this.swiper = null;
+        this.collectionSrc = [];
+        this.elementClick = null;
+        this.swiperWrapper = this.lightBox.querySelector('.swiper-lightbox .swiper-wrapper')
+        this.swiperWrapperThumbs = this.lightBox.querySelector('.swiper-lightbox-thumbs .swiper-wrapper')
+        this.nameMobile = this.lightBox.querySelector('#lightbox .catalog__name.mobile')
+        this.nameDesktop = this.lightBox.querySelector('#lightbox .catalog__name.desktop')
+        this.params = this.lightBox.querySelector('.lightbox__row.params')
+        this.structure = this.lightBox.querySelector('.lightbox__row.structure')
+        this.detail = this.lightBox.querySelector('.lightbox__row.detail .lightbox__description-house')
+        this.prices = this.lightBox.querySelector('.lightbox__prices')
+        this.text = this.lightBox.querySelector('.lightbox__contacts p')
+        this.data = {}
+        this.setEventListeners()
+    }
+
+    setEventListeners() {
+        const elementsClick = document.querySelectorAll('[data-pointer="lightbox"]')
+        elementsClick.forEach(el => el.addEventListener('click', ({ target }) => this.handlerClick(target)))
+    }
+
+    handlerClick(element) {
+        this.elementClick = element
+        this.collectImages(this.elementClick)
+        this.setSwipers()
+        this.setData(this.elementClick)
+    }
+
+    collectImages(element) {
+        this.collectionSrc = []
+        const photos = element.closest('.catalog__item').querySelectorAll('.swiper-catalog .swiper-slide')
+        photos.forEach(photo => this.collectionSrc = [...this.collectionSrc, photo.src])
+        this.collectionSrc.forEach(src => {
+            const imgHTML = `<img class="swiper-slide"
+            src="${src}" />`
+            this.swiperWrapper.insertAdjacentHTML('afterbegin', imgHTML)
+            this.swiperWrapperThumbs.insertAdjacentHTML('afterbegin', imgHTML)
+        })
+    }
+
+    setData(element) {
+        this.data = {}
+        const parent = element.closest('.catalog__item')
+        const name = parent.querySelector('.catalog__name').textContent
+        const params = parent.querySelector('.catalog__specifications.params').cloneNode(true)
+        const structure = parent.querySelector('.catalog__specifications.structure').cloneNode(true)
+        const detail = parent.querySelector('.catalog__detail').cloneNode(true)
+        const basePrice = parent.querySelector('.catalog__price.base').cloneNode(true)
+        const mortgagePrice = parent.querySelector('.catalog__price.mortgage').cloneNode(true)
+
+        this.data = { name, params, structure, detail, basePrice, mortgagePrice }
+        this.nameMobile.textContent = this.data.name
+        this.nameDesktop.textContent = this.data.name
+        this.params.append(this.data.params)
+        this.structure.append(this.data.structure)
+        this.detail.append(this.data.detail)
+        this.prices.append(this.data.basePrice)
+        this.prices.append(this.data.mortgagePrice)
+        if(parent.closest('#catalog')) this.text.innerHTML = `Остались вопросы<span> по этому проекту</span>?<br>
+        Напишите нам<span> в мессенджере</span>`
+        if(parent.closest('#ready')) this.text.innerHTML = `Хотите такой <span>же </span>дом?
+        Напишите нам<span> в мессенджере</span>`
+    }
+
+    setSwipers() {
+
+        this.swiperThumbs = new Swiper(".swiper-lightbox-thumbs", {
+            spaceBetween: 10,
+            slidesPerView: 4,
+            freeMode: true,
+            watchSlidesProgress: true,
+            breakpoints: {
+                1000: {
+                    spaceBetween: 10,
+                },
+                580: {
+                    spaceBetween: 23,
+                }
+            }
+        });
+        this.swiper = new Swiper(".swiper-lightbox", {
+            spaceBetween: 10,
+            thumbs: {
+                swiper: this.swiperThumbs,
+            },
+            pagination: {
+                el: ".swiper-lightbox .swiper-pagination",
+                type: "fraction",
+            },
+        })
+    }
+
+    destroy() {
+        if (this.swiper && this.swiperThumbs) {
+            this.swiper.destroy()
+            this.swiperThumbs.destroy()
+            this.swiperWrapper.innerHTML = ""
+            this.swiperWrapperThumbs.innerHTML = ""
+            if (this.params.querySelector('.catalog__specifications.params')) document.querySelector('#lightbox .catalog__specifications.params').remove()
+            if (this.structure.querySelector('.catalog__specifications.structure')) document.querySelector('#lightbox .catalog__specifications.structure').remove()
+            if (this.detail) this.detail.innerHTML = ""
+            if(this.prices) this.prices.innerHTML = ""
+            if(this.nameMobile) this.nameMobile.textContent = ""
+            if(this.nameDesktop) this.nameDesktop.textContent = ""
+            if(this.text) this.text.innerHTML = ""
+        }
+    }
+}
+
+var lightBox = new LightBox()

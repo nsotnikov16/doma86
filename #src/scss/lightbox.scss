@@ -1,6 +1,6 @@
 .lightbox {
     max-width: 940px;
-    max-height: 636px;
+    /* max-height: 636px; */
     padding: 30px 35px;
     background-color: #fff;
     border: 1px solid #28cb5a;
@@ -8,6 +8,23 @@
     display: grid;
     grid-template-columns: 1fr max-content;
     gap: 32px 24px;
+    overflow: auto;
+
+    @media (max-width: 1000px) {
+        max-width: 90vw;
+        grid-template-columns: 1fr;
+        max-height: 90vh;
+        gap: 10px 0;
+        padding: 20px 35px;
+        
+    }
+    @media (max-width: 768px) {
+        max-height: 95vh;
+        
+    }
+    @media (max-width: 767px) {
+        padding: 20px;
+    }
     &__swiper {
         height: 100%;
         width: 100%;
@@ -17,12 +34,32 @@
 
     &__description {
         max-width: 335px;
+        @media (max-width: 1000px) {
+            max-width: 100%;
+        }
+        @media (max-width: 768px) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 20px;
+        }
+        @media(max-width: 767px) {
+            grid-template-columns: 1fr;
+        }
     }
 
     &__description-house {
         margin-top: 16px;
         font-size: 14px;
         line-height: 16px;
+        @media (max-width: 1000px) {
+            font-size: 12px;
+            line-height: 16px;
+        }
+        @media (max-width: 768px) {
+            br {
+                display: none;
+            }
+        }
     }
 
     &__row {
@@ -33,6 +70,19 @@
         b {
             font-size: 12px;
             line-height: 16px;
+        }
+
+        @media (max-width: 768px) {
+            &:last-of-type {
+                grid-column: 1/3;
+            }
+        }
+
+        @media(max-width: 767px) {
+            margin-bottom: 20px;
+            &:last-of-type {
+                grid-column: initial;
+            }
         }
     }
 
@@ -48,12 +98,24 @@
             font-size: 14px;
             line-height: 16px;
             max-width: 276px;
+            @media(max-width: 767px) {
+                margin-right: 8px;
+                span {
+                    display: none;
+                }
+            }
+        }
+        @media(max-width: 767px) {
+            padding: 15px;
         }
     }
 
     &__prices {
         display: flex;
         align-items: center;
+        @media (max-width: 767px) {
+            flex-direction: column;
+        }
     }
 
     .catalog__price {
@@ -63,6 +125,7 @@
         font-size: 18px;
         line-height: 21px;
         padding: 10px 24px;
+
         .green {
             font-size: 26px;
             line-height: 30px;
@@ -74,24 +137,84 @@
             padding: 18px 20px;
             font-size: 16px;
             line-height: 18px;
+
             .green {
                 font-size: 16px;
                 line-height: 18px;
             }
         }
+
+        @media (max-width: 1000px) {
+            flex-basis: 60%;
+            &.mortgage {
+                flex-basis: 40%;
+            }
+        }
+        @media (max-width: 767px) {
+            flex-basis: initial;
+            &.mortgage {
+                flex-basis: initial;
+                padding: 5px 0;
+            }
+            width: 100%;
+        }
     }
 
     .catalog__name {
         margin: 0 0 30px;
+        &.mobile {
+            display: none;
+        }
+        @media (max-width: 1000px) {
+            &.mobile {
+                display: block;
+                margin: 0;
+            }
+
+            &.desktop {
+                display: none;
+            }
+        }
+
+        @media (max-width: 767px) {
+            font-size: 20px;
+            line-height: 27px;
+        }
     }
     .catalog__specifications {
         padding: 16px 0 0;
         grid-template-columns: max-content max-content;
         gap: 17px 40px;
+
+        @media (max-width: 1000px) {
+            grid-template-columns: repeat(auto-fit, minmax(60px, max-content));
+            gap: 17px 5%;
+        }
+        @media (max-width: 768px) {
+            grid-template-columns: max-content max-content;
+            gap: 17px 7%;
+        }
+        @media (max-width: 767px) {
+        }
+        @media(max-width: 320px) {
+            grid-template-columns: 1fr;
+            gap: 14px 0;
+        }
+    }
+
+    .catalog__specification {
+        @media (max-width: 1000px) {
+            grid-row: initial;
+            grid-column: initial;
+            font-size: 12px;
+            line-height: 16px;
+        }
     }
 
     .catalog__specification::before {
         top: 2px;
+        width: 15px;
+        height: 15px;
     }
     /* Свайпер Лайтбокса */
     .swiper-slide {
@@ -100,6 +223,12 @@
     .swiper-lightbox {
         .swiper-wrapper {
             height: 384px;
+            @media (max-width: 850px) {
+                height: 350px;
+            }
+            @media (max-width: 767px) {
+                height: calc(195px + (155 + 155 * 0.7) * ((100vw - 360px) / 767));
+            }
         }
 
         .swiper-slide {
@@ -124,11 +253,17 @@
                 opacity: 0.7;
                 z-index: -1;
                 border-radius: 27px;
+                @media(max-width: 767px) {
+                    width: 57px;
+                }
             }
         }
     }
 
     .swiper-lightbox-thumbs {
+        @media (max-width: 767px) {
+            display: none;
+        }
         margin-top: 11px;
         .swiper-wrapper {
             height: 85px;

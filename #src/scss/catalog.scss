@@ -228,3 +228,7 @@
         }
     }
 }
+
+.catalog .catalog__detail, .catalog .catalog__specifications.structure, .catalog .catalog__price.mortgage {
+    display: none;
+}

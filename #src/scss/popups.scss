@@ -12,16 +12,14 @@
     justify-content: center;
     align-items: center;
     /* background: rgba(17,24,39, 0.5);  */
-    background: rgba(255,255,255, 0.75); 
+    background: rgba(255, 255, 255, 0.75);
     &.popup_opened {
         opacity: 1;
         visibility: visible;
         transition: all 0.3s ease;
     }
 
-    
-
-    &__container{
+    &__container {
         position: relative;
         padding-top: 10px;
     }
@@ -29,16 +27,14 @@
     &__close {
         position: absolute;
         top: 25px;
-        right: 20px; 
+        right: 20px;
         font-size: 25px;
-        color: $main; 
+        color: $main;
         font-weight: 300;
         &:hover {
             color: $green;
         }
     }
-
-    
 
     &__img {
         max-width: 50vw;
@@ -46,22 +42,32 @@
         object-fit: contain;
         object-position: top center;
         border-radius: 5px;
-        @media(max-width: 1180px) {
+        @media (max-width: 1180px) {
             max-width: 70vw;
         }
 
-        @media(max-width: 768px) {
+        @media (max-width: 768px) {
             max-width: 85vw;
         }
     }
-
 }
-
 
 #photo.popup {
     .popup__close {
         color: white;
         right: -10px;
         top: -25px;
+    }
+}
+
+#lightbox .popup__close {
+    @media (max-width: 1000px) {
+        top: 35px;
+        right: 35px;
+    }
+
+    @media (max-width: 768px) {
+        top: 30px;
+        right: 20px;
     }
 }
