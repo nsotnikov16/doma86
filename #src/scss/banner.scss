@@ -123,6 +123,7 @@
     }
 
     @media (max-width: 560px) {
+        
         padding: 80% 0 15%;
         &__title {
             font-size: 38px;
@@ -175,5 +176,9 @@
                 font-size: calc(12px + (8 + 8 * 0.7) * ((100vw - 360px) / 560));
             }
         }
+    }
+
+    @media(max-width: 430px) {
+        padding: 68% 0 15%;
     }
 }
