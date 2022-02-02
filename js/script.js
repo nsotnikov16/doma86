@@ -41,15 +41,10 @@ window.addEventListener('resize', () => {
 })
 
 burger.addEventListener('click', () => headerMenuMobile.classList.toggle('open'))
-
+document.addEventListener('click', ({ target }) => {
+    if (headerMenuMobile.classList.contains('open') && !target.closest('.header__mobile-menu')) headerMenuMobile.classList.remove('open')
+})
 // Анимация
-/* const sectionTitle = document.querySelectorAll('.section__title')
-const sectionSubtitle = document.querySelectorAll('.section__subtitle')
-const sectionDescription = document.querySelectorAll('.section__description')
-
-sectionTitle.forEach(item => item.classList.add('_anim-items', '_anim-no-hide'))
-sectionSubtitle.forEach(item => item.classList.add('_anim-items', '_anim-no-hide'))
-sectionDescription.forEach(item => item.classList.add('_anim-items', '_anim-no-hide'))
 
 const animItems = document.querySelectorAll('._anim-items');
 
@@ -86,8 +81,8 @@ if (animItems.length > 0) {
 
     setTimeout(() => {
         animOnScroll();
-    }, 10);
-} */
+    }, 1);
+}
 
 
 // Scroll To
@@ -360,9 +355,9 @@ class LightBox {
         this.detail.append(this.data.detail)
         this.prices.append(this.data.basePrice)
         this.prices.append(this.data.mortgagePrice)
-        if(parent.closest('#catalog')) this.text.innerHTML = `Остались вопросы<span> по этому проекту</span>?<br>
+        if (parent.closest('#catalog')) this.text.innerHTML = `Остались вопросы<span> по этому проекту</span>?<br>
         Напишите нам<span> в мессенджере</span>`
-        if(parent.closest('#ready')) this.text.innerHTML = `Хотите такой <span>же </span>дом?
+        if (parent.closest('#ready')) this.text.innerHTML = `Хотите такой <span>же </span>дом?
         Напишите нам<span> в мессенджере</span>`
     }
 
@@ -395,19 +390,22 @@ class LightBox {
     }
 
     destroy() {
-        if (this.swiper && this.swiperThumbs) {
-            this.swiper.destroy()
-            this.swiperThumbs.destroy()
-            this.swiperWrapper.innerHTML = ""
-            this.swiperWrapperThumbs.innerHTML = ""
-            if (this.params.querySelector('.catalog__specifications.params')) document.querySelector('#lightbox .catalog__specifications.params').remove()
-            if (this.structure.querySelector('.catalog__specifications.structure')) document.querySelector('#lightbox .catalog__specifications.structure').remove()
-            if (this.detail) this.detail.innerHTML = ""
-            if(this.prices) this.prices.innerHTML = ""
-            if(this.nameMobile) this.nameMobile.textContent = ""
-            if(this.nameDesktop) this.nameDesktop.textContent = ""
-            if(this.text) this.text.innerHTML = ""
-        }
+        setTimeout(() => {
+            if (this.swiper && this.swiperThumbs) {
+                this.swiper.destroy()
+                this.swiperThumbs.destroy()
+                this.swiperWrapper.innerHTML = ""
+                this.swiperWrapperThumbs.innerHTML = ""
+                if (this.params.querySelector('.catalog__specifications.params')) document.querySelector('#lightbox .catalog__specifications.params').remove()
+                if (this.structure.querySelector('.catalog__specifications.structure')) document.querySelector('#lightbox .catalog__specifications.structure').remove()
+                if (this.detail) this.detail.innerHTML = ""
+                if (this.prices) this.prices.innerHTML = ""
+                if (this.nameMobile) this.nameMobile.textContent = ""
+                if (this.nameDesktop) this.nameDesktop.textContent = ""
+                if (this.text) this.text.innerHTML = ""
+            }
+        }, 200)
+
     }
 }
 
