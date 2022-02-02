@@ -853,6 +853,7 @@ body {
 
 .banner__title._animate {
   opacity: 1;
+  overflow: visible;
   -webkit-transform: translateX(0);
       -ms-transform: translateX(0);
           transform: translateX(0);
